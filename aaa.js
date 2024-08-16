@@ -8,28 +8,28 @@ $(document).ready(function () {
 
   function loadNextItem(response) {
     // // if (currentIndex < totalUsers) {
-    // // var users = data.slice(currentIndex, currentIndex + pageSize);
-    // response.forEach(function (user, index) {
-    //   var carouselInner = $("#carousel-content");
-    //   var carouselItem = `
-    //                   <div class="carousel-item">
-    //                       <img class="d-block w-100" src="https://via.placeholder.com/600x300" alt="Slide ${
-    //                         currentIndex + index + 1
-    //                       }" />
-    //                       <p class="fs-5 my-3">İsim: ${user.fname}</p>
-    //                       <p class="fs-5 mb-3">Kullanıcı Adı: ${user.lname}</p>
-    //                       <p class="fs-5 my-3">Tel: ${user.phone}</p>
-    //                       <p class="fs-5 mb-3">Email: ${user.email}</p>
-    //                   </div>
-    //               `;
-    //   carouselInner.append(carouselItem);
-    // });
-    // $(".carousel-item").removeClass("active");
-    // $(".carousel-item").last().addClass("active");
-    // currentIndex += pageSize;
-    // $(".carousel").carousel("next");
-    // // }
-    console.log(response.user);
+    // var users = data.slice(currentIndex, currentIndex + pageSize);
+    response.forEach(function (user, index) {
+      var carouselInner = $("#carousel-content");
+      var carouselItem = `
+                      <div class="carousel-item">
+                          <img class="d-block w-100" src="https://via.placeholder.com/600x300" alt="Slide ${
+                            currentIndex + index + 1
+                          }" />
+                          <p class="fs-5 my-3">İsim: ${user.fname}</p>
+                          <p class="fs-5 mb-3">Kullanıcı Adı: ${user.lname}</p>
+                          <p class="fs-5 my-3">Tel: ${user.phone}</p>
+                          <p class="fs-5 mb-3">Email: ${user.email}</p>
+                      </div>
+                  `;
+      carouselInner.append(carouselItem);
+    });
+    $(".carousel-item").removeClass("active");
+    $(".carousel-item").last().addClass("active");
+    currentIndex += pageSize;
+    $(".carousel").carousel("next");
+    // }
+    console.log(response.user.profile_photo);
   }
 
   function fetchData() {
